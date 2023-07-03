@@ -1,18 +1,37 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MainApp());
+  runApp(
+    const Calculator(),
+  );
 }
 
-class MainApp extends StatelessWidget {
-  const MainApp({super.key});
+class Calculator extends StatelessWidget {
+  const Calculator({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
+        backgroundColor: Colors.indigo,
+        appBar: AppBar(
+          backgroundColor: Colors.indigo[600],
+          title: const Center(
+            child: Text('Calculadora'),
+          ),
+        ),
+        body: SafeArea(
+          child: Column(
+            children: [
+              Container(
+                margin: const EdgeInsets.all(10.0),
+                color: Colors.amber[600],
+                width: double.infinity,
+                height: 150,
+              ),
+            ],
+          ),
         ),
       ),
     );
