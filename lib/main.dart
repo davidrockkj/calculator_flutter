@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(
-    const Calculator(),
-  );
+  runApp(const Calculator());
 }
 
 class Calculator extends StatelessWidget {
@@ -12,675 +10,610 @@ class Calculator extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
       home: Scaffold(
-        backgroundColor: Colors.indigo,
+        backgroundColor: Colors.indigo[900],
         appBar: AppBar(
-          backgroundColor: Colors.indigo[600],
+          backgroundColor: Colors.indigo[800],
           title: const Center(
             child: Text('Calculadora'),
           ),
         ),
-        body: SafeArea(
-          child: Column(
-            children: [
-              Container(
-                margin: const EdgeInsets.all(10.0),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                width: double.infinity,
-                height: 150,
-                child: const Center(
-                  child: Text(
-                    'visor',
-                    style: TextStyle(
-                      fontSize: 30
-                    ),
-                  ),
+        body: Column(
+          children: [
+            Container(
+              width: 400,
+              height: 150,
+              alignment: Alignment.center,
+              margin: const EdgeInsets.all(10),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: const Text(
+                'Visor',
+                style: TextStyle(
+                  fontSize: 30,
                 ),
               ),
-
-              Padding(
-                padding: const EdgeInsets.only(left: 10.0, right: 10.0),
-                child: Row(
+            ),
+            
+            // ignore: avoid_unnecessary_containers
+            Container(
+              child: Expanded(
+                child: Column(
                   children: [
-              
-                    // C
+
+
+                    // C DEL % /
                     Expanded(
-                      flex: 9,
-                      child: Container(
-                        margin: const EdgeInsets.only(top: 5.0, bottom: 5.0),
-                        decoration: BoxDecoration(
-                          border: Border.all(
-                            width: 3,
-                            color: (Colors.indigo[300])!,
-                          ),
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: Padding(
-                          padding: const EdgeInsets.all(10.0),
-                          child: Center(
-                            child: Text(
-                              'C',
-                              style: TextStyle(
-                                color: Colors.deepPurple[900],
-                                fontSize: 30,
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: [
+
+                          // C
+                          Expanded(
+                            child: OutlinedButton(
+                              style: OutlinedButton.styleFrom(
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: const BorderRadius.all(Radius.circular(5),
+                                  ),
+                                  side: BorderSide(
+                                    style: BorderStyle.solid,
+                                    color: (Colors.indigo[300])!,
+                                    width: 3,
+                                  ),
+                                ),
                               ),
-                              
+                              onPressed: () {
+                                
+                              }, 
+                              child: Text(
+                                'C',
+                                style: TextStyle(
+                                  color: Colors.indigo[400],
+                                  fontSize: 30
+                                ),
+                              ),
                             ),
                           ),
-                        ),
+
+                          // DEL
+                          Expanded(
+                            child: OutlinedButton(
+                              style: OutlinedButton.styleFrom(
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: const BorderRadius.all(Radius.circular(5),
+                                  ),
+                                  side: BorderSide(
+                                    style: BorderStyle.solid,
+                                    color: (Colors.indigo[300])!,
+                                    width: 3,
+                                  ),
+                                ),
+                              ),
+                              onPressed: () {
+                                
+                              }, 
+                              child: Text(
+                                'DEL',
+                                style: TextStyle(
+                                  color: Colors.indigo[400],
+                                  fontSize: 30
+                                ),
+                              ),
+                            ),
+                          ),
+
+                          // %
+                          Expanded(
+                            child: OutlinedButton(
+                              style: OutlinedButton.styleFrom(
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: const BorderRadius.all(Radius.circular(5),
+                                  ),
+                                  side: BorderSide(
+                                    style: BorderStyle.solid,
+                                    color: (Colors.indigo[300])!,
+                                    width: 3,
+                                  ),
+                                ),
+                              ),
+                              onPressed: () {
+                                
+                              }, 
+                              child: Text(
+                                '%',
+                                style: TextStyle(
+                                  color: Colors.indigo[400],
+                                  fontSize: 30
+                                ),
+                              ),
+                            ),
+                          ),
+
+                          // /
+                          Expanded(
+                            child: OutlinedButton(
+                              style: OutlinedButton.styleFrom(
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: const BorderRadius.all(Radius.circular(5),
+                                  ),
+                                  side: BorderSide(
+                                    style: BorderStyle.solid,
+                                    color: (Colors.indigo[300])!,
+                                    width: 3,
+                                  ),
+                                ),
+                              ),
+                              onPressed: () {
+                                
+                              }, 
+                              child: Text(
+                                '/',
+                                style: TextStyle(
+                                  color: Colors.indigo[400],
+                                  fontSize: 30
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
                     ),
 
-                    const Expanded(
-                      flex: 1,
-                      child: SizedBox(),
-                    ),
-              
-                    // DEL
+
+                    // 7 8 9 *
                     Expanded(
-                      flex: 9,
-                      child: Container(
-                        margin: const EdgeInsets.only(top: 5.0, bottom: 5.0),
-                        decoration: BoxDecoration(
-                          border: Border.all(
-                            width: 3,
-                            color: (Colors.indigo[300])!,
-                          ),
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: Padding(
-                          padding: const EdgeInsets.all(10.0),
-                          child: Center(
-                            child: Text(
-                              'DEL',
-                              style: TextStyle(
-                                color: Colors.deepPurple[900],
-                                fontSize: 30,
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: [
+
+                          // 7
+                          Expanded(
+                            child: OutlinedButton(
+                              style: OutlinedButton.styleFrom(
+                                shape: const RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.all(Radius.circular(5),
+                                  ),
+                                  side: BorderSide(
+                                    style: BorderStyle.solid,
+                                    color: Colors.white,
+                                    width: 3,
+                                  ),
+                                ),
                               ),
-                              
+                              onPressed: () {
+                                
+                              }, 
+                              child: const Text(
+                                '7',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 30
+                                ),
+                              ),
                             ),
                           ),
-                        ),
+
+                          // 8
+                          Expanded(
+                            child: OutlinedButton(
+                              style: OutlinedButton.styleFrom(
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: const BorderRadius.all(Radius.circular(5),
+                                  ),
+                                  side: BorderSide(
+                                    style: BorderStyle.solid,
+                                    color: (Colors.indigo[300])!,
+                                    width: 3,
+                                  ),
+                                ),
+                              ),
+                              onPressed: () {
+                                
+                              }, 
+                              child: const Text(
+                                '8',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 30
+                                ),
+                              ),
+                            ),
+                          ),
+
+                          // 9
+                          Expanded(
+                            child: OutlinedButton(
+                              style: OutlinedButton.styleFrom(
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: const BorderRadius.all(Radius.circular(5),
+                                  ),
+                                  side: BorderSide(
+                                    style: BorderStyle.solid,
+                                    color: (Colors.indigo[300])!,
+                                    width: 3,
+                                  ),
+                                ),
+                              ),
+                              onPressed: () {
+                                
+                              }, 
+                              child: const Text(
+                                '9',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 30
+                                ),
+                              ),
+                            ),
+                          ),
+
+                          // *
+                          Expanded(
+                            child: OutlinedButton(
+                              style: OutlinedButton.styleFrom(
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: const BorderRadius.all(Radius.circular(5),
+                                  ),
+                                  side: BorderSide(
+                                    style: BorderStyle.solid,
+                                    color: (Colors.indigo[300])!,
+                                    width: 3,
+                                  ),
+                                ),
+                              ),
+                              onPressed: () {
+                                
+                              }, 
+                              child: Text(
+                                '*',
+                                style: TextStyle(
+                                  color: Colors.indigo[400],
+                                  fontSize: 30
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
                     ),
 
-                    const Expanded(
-                      flex: 1,
-                      child: SizedBox(),
-                    ),
-              
-                    // %
+
+                    // 4 5 6 -
                     Expanded(
-                      flex: 9,
-                      child: Container(
-                        margin: const EdgeInsets.only(top: 5.0, bottom: 5.0),
-                        decoration: BoxDecoration(
-                          border: Border.all(
-                            width: 3,
-                            color: (Colors.indigo[300])!,
-                          ),
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: Padding(
-                          padding: const EdgeInsets.all(10.0),
-                          child: Center(
-                            child: Text(
-                              '%',
-                              style: TextStyle(
-                                color: Colors.deepPurple[900],
-                                fontSize: 30,
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: [
+
+                          // 4
+                          Expanded(
+                            child: OutlinedButton(
+                              style: OutlinedButton.styleFrom(
+                                shape: const RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.all(Radius.circular(5),
+                                  ),
+                                  side: BorderSide(
+                                    style: BorderStyle.solid,
+                                    color: Colors.white,
+                                    width: 3,
+                                  ),
+                                ),
                               ),
-                              
+                              onPressed: () {
+                                
+                              }, 
+                              child: const Text(
+                                '4',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 30
+                                ),
+                              ),
                             ),
                           ),
-                        ),
+
+                          // 5
+                          Expanded(
+                            child: OutlinedButton(
+                              style: OutlinedButton.styleFrom(
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: const BorderRadius.all(Radius.circular(5),
+                                  ),
+                                  side: BorderSide(
+                                    style: BorderStyle.solid,
+                                    color: (Colors.indigo[300])!,
+                                    width: 3,
+                                  ),
+                                ),
+                              ),
+                              onPressed: () {
+                                
+                              }, 
+                              child: const Text(
+                                '5',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 30
+                                ),
+                              ),
+                            ),
+                          ),
+
+                          // 6
+                          Expanded(
+                            child: OutlinedButton(
+                              style: OutlinedButton.styleFrom(
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: const BorderRadius.all(Radius.circular(5),
+                                  ),
+                                  side: BorderSide(
+                                    style: BorderStyle.solid,
+                                    color: (Colors.indigo[300])!,
+                                    width: 3,
+                                  ),
+                                ),
+                              ),
+                              onPressed: () {
+                                
+                              }, 
+                              child: const Text(
+                                '6',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 30
+                                ),
+                              ),
+                            ),
+                          ),
+
+                          // -
+                          Expanded(
+                            child: OutlinedButton(
+                              style: OutlinedButton.styleFrom(
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: const BorderRadius.all(Radius.circular(5),
+                                  ),
+                                  side: BorderSide(
+                                    style: BorderStyle.solid,
+                                    color: (Colors.indigo[300])!,
+                                    width: 3,
+                                  ),
+                                ),
+                              ),
+                              onPressed: () {
+                                
+                              }, 
+                              child: Text(
+                                '-',
+                                style: TextStyle(
+                                  color: Colors.indigo[400],
+                                  fontSize: 30
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
                     ),
 
-                    const Expanded(
-                      flex: 1,
-                      child: SizedBox(),
-                    ),
 
-                    // /
+                    // 1 2 3 +
                     Expanded(
-                      flex: 9,
-                      child: Container(
-                        margin: const EdgeInsets.only(top: 5.0, bottom: 5.0),
-                        decoration: BoxDecoration(
-                          border: Border.all(
-                            width: 3,
-                            color: (Colors.indigo[300])!,
-                          ),
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: Padding(
-                          padding: const EdgeInsets.all(10.0),
-                          child: Center(
-                            child: Text(
-                              '/',
-                              style: TextStyle(
-                                color: Colors.deepPurple[900],
-                                fontSize: 30,
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: [
+
+                          // 1
+                          Expanded(
+                            child: OutlinedButton(
+                              style: OutlinedButton.styleFrom(
+                                shape: const RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.all(Radius.circular(5),
+                                  ),
+                                  side: BorderSide(
+                                    style: BorderStyle.solid,
+                                    color: Colors.white,
+                                    width: 3,
+                                  ),
+                                ),
                               ),
-                              
+                              onPressed: () {
+                                
+                              }, 
+                              child: const Text(
+                                '1',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 30
+                                ),
+                              ),
                             ),
                           ),
-                        ),
+
+                          // 2
+                          Expanded(
+                            child: OutlinedButton(
+                              style: OutlinedButton.styleFrom(
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: const BorderRadius.all(Radius.circular(5),
+                                  ),
+                                  side: BorderSide(
+                                    style: BorderStyle.solid,
+                                    color: (Colors.indigo[300])!,
+                                    width: 3,
+                                  ),
+                                ),
+                              ),
+                              onPressed: () {
+                                
+                              }, 
+                              child: const Text(
+                                '2',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 30
+                                ),
+                              ),
+                            ),
+                          ),
+
+                          // 3
+                          Expanded(
+                            child: OutlinedButton(
+                              style: OutlinedButton.styleFrom(
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: const BorderRadius.all(Radius.circular(5),
+                                  ),
+                                  side: BorderSide(
+                                    style: BorderStyle.solid,
+                                    color: (Colors.indigo[300])!,
+                                    width: 3,
+                                  ),
+                                ),
+                              ),
+                              onPressed: () {
+                                
+                              }, 
+                              child: const Text(
+                                '3',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 30
+                                ),
+                              ),
+                            ),
+                          ),
+
+                          // +
+                          Expanded(
+                            child: OutlinedButton(
+                              style: OutlinedButton.styleFrom(
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: const BorderRadius.all(Radius.circular(5),
+                                  ),
+                                  side: BorderSide(
+                                    style: BorderStyle.solid,
+                                    color: (Colors.indigo[300])!,
+                                    width: 3,
+                                  ),
+                                ),
+                              ),
+                              onPressed: () {
+                                
+                              }, 
+                              child: Text(
+                                '+',
+                                style: TextStyle(
+                                  color: Colors.indigo[400],
+                                  fontSize: 30
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
                     ),
+
+
+                    // 0 . =
+                    Expanded(
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: [
+
+                          // 0
+                          Expanded(
+                            flex: 2,
+                            child: OutlinedButton(
+                              style: OutlinedButton.styleFrom(
+                                shape: const RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.all(Radius.circular(5),
+                                  ),
+                                  side: BorderSide(
+                                    style: BorderStyle.solid,
+                                    color: Colors.white,
+                                    width: 3,
+                                  ),
+                                ),
+                              ),
+                              onPressed: () {
+                                
+                              }, 
+                              child: const Text(
+                                '0',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 30
+                                ),
+                              ),
+                            ),
+                          ),
+
+                          // .
+                          Expanded(
+                            flex: 2,
+                            child: OutlinedButton(
+                              style: OutlinedButton.styleFrom(
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: const BorderRadius.all(Radius.circular(5),
+                                  ),
+                                  side: BorderSide(
+                                    style: BorderStyle.solid,
+                                    color: (Colors.indigo[300])!,
+                                    width: 3,
+                                  ),
+                                ),
+                              ),
+                              onPressed: () {
+                                
+                              }, 
+                              child: const Text(
+                                '.',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 30
+                                ),
+                              ),
+                            ),
+                          ),
+
+                          // =
+                          Expanded(
+                            flex: 4,
+                            child: OutlinedButton(
+                              style: OutlinedButton.styleFrom(
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: const BorderRadius.all(Radius.circular(5),
+                                  ),
+                                  side: BorderSide(
+                                    style: BorderStyle.solid,
+                                    color: (Colors.indigo[300])!,
+                                    width: 3,
+                                  ),
+                                ),
+                              ),
+                              onPressed: () {
+                                
+                              }, 
+                              child: Text(
+                                '=',
+                                style: TextStyle(
+                                  color: Colors.indigo[300],
+                                  fontSize: 30
+                                ),
+                              ),
+                            ),
+                          ),
+
+                        ],
+                      ),
+                    ),                    
                   ],
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(left: 10.0, right: 10.0),
-                child: Row(
-                  children: [
-              
-                    // 7
-                    Expanded(
-                      flex: 9,
-                      child: Container(
-                        margin: const EdgeInsets.only(top: 5.0, bottom: 5.0),
-                        decoration: BoxDecoration(
-                          border: Border.all(
-                            width: 3,
-                            color: (Colors.indigo[300])!,
-                          ),
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: const Padding(
-                          padding: EdgeInsets.all(10.0),
-                          child: Center(
-                            child: Text(
-                              '7',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 30,
-                              ),
-                              
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-
-                    const Expanded(
-                      flex: 1,
-                      child: SizedBox(),
-                    ),
-              
-                    // 8
-                    Expanded(
-                      flex: 9,
-                      child: Container(
-                        margin: const EdgeInsets.only(top: 5.0, bottom: 5.0),
-                        decoration: BoxDecoration(
-                          border: Border.all(
-                            width: 3,
-                            color: (Colors.indigo[300])!,
-                          ),
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: const Padding(
-                          padding: EdgeInsets.all(10.0),
-                          child: Center(
-                            child: Text(
-                              '8',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 30,
-                              ),
-                              
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-
-                    const Expanded(
-                      flex: 1,
-                      child: SizedBox(),
-                    ),
-              
-                    // 9
-                    Expanded(
-                      flex: 9,
-                      child: Container(
-                        margin: const EdgeInsets.only(top: 5.0, bottom: 5.0),
-                        decoration: BoxDecoration(
-                          border: Border.all(
-                            width: 3,
-                            color: (Colors.indigo[300])!,
-                          ),
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: const Padding(
-                          padding: EdgeInsets.all(10.0),
-                          child: Center(
-                            child: Text(
-                              '9',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 30,
-                              ),
-                              
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-
-                    const Expanded(
-                      flex: 1,
-                      child: SizedBox(),
-                    ),
-
-                    // *
-                    Expanded(
-                      flex: 9,
-                      child: Container(
-                        margin: const EdgeInsets.only(top: 5.0, bottom: 5.0),
-                        decoration: BoxDecoration(
-                          border: Border.all(
-                            width: 3,
-                            color: (Colors.indigo[300])!,
-                          ),
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: Padding(
-                          padding: const EdgeInsets.all(10.0),
-                          child: Center(
-                            child: Text(
-                              '*',
-                              style: TextStyle(
-                                color: Colors.deepPurple[900],
-                                fontSize: 30,
-                              ),
-                              
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 10.0, right: 10.0),
-                child: Row(
-                  children: [
-              
-                    // 4
-                    Expanded(
-                      flex: 9,
-                      child: Container(
-                        margin: const EdgeInsets.only(top: 5.0, bottom: 5.0),
-                        decoration: BoxDecoration(
-                          border: Border.all(
-                            width: 3,
-                            color: (Colors.indigo[300])!,
-                          ),
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: const Padding(
-                          padding: EdgeInsets.all(10.0),
-                          child: Center(
-                            child: Text(
-                              '4',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 30,
-                              ),
-                              
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-
-                    const Expanded(
-                      flex: 1,
-                      child: SizedBox(),
-                    ),
-              
-                    // 5
-                    Expanded(
-                      flex: 9,
-                      child: Container(
-                        margin: const EdgeInsets.only(top: 5.0, bottom: 5.0),
-                        decoration: BoxDecoration(
-                          border: Border.all(
-                            width: 3,
-                            color: (Colors.indigo[300])!,
-                          ),
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: const Padding(
-                          padding: EdgeInsets.all(10.0),
-                          child: Center(
-                            child: Text(
-                              '5',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 30,
-                              ),
-                              
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-
-                    const Expanded(
-                      flex: 1,
-                      child: SizedBox(),
-                    ),
-              
-                    // 6
-                    Expanded(
-                      flex: 9,
-                      child: Container(
-                        margin: const EdgeInsets.only(top: 5.0, bottom: 5.0),
-                        decoration: BoxDecoration(
-                          border: Border.all(
-                            width: 3,
-                            color: (Colors.indigo[300])!,
-                          ),
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: const Padding(
-                          padding: EdgeInsets.all(10.0),
-                          child: Center(
-                            child: Text(
-                              '6',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 30,
-                              ),
-                              
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-
-                    const Expanded(
-                      flex: 1,
-                      child: SizedBox(),
-                    ),
-
-                    // +
-                    Expanded(
-                      flex: 9,
-                      child: Container(
-                        margin: const EdgeInsets.only(top: 5.0, bottom: 5.0),
-                        decoration: BoxDecoration(
-                          border: Border.all(
-                            width: 3,
-                            color: (Colors.indigo[300])!,
-                          ),
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child:  Padding(
-                          padding: const EdgeInsets.all(10.0),
-                          child: Center(
-                            child: Text(
-                              '+',
-                              style: TextStyle(
-                                color: Colors.deepPurple[900],
-                                fontSize: 30,
-                              ),
-                              
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 10.0, right: 10.0),
-                child: Row(
-                  children: [
-              
-                    // 1
-                    Expanded(
-                      flex: 9,
-                      child: Container(
-                        margin: const EdgeInsets.only(top: 5.0, bottom: 5.0),
-                        decoration: BoxDecoration(
-                          border: Border.all(
-                            width: 3,
-                            color: (Colors.indigo[300])!,
-                          ),
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: const Padding(
-                          padding: EdgeInsets.all(10.0),
-                          child: Center(
-                            child: Text(
-                              '1',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 30,
-                              ),
-                              
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-
-                    const Expanded(
-                      flex: 1,
-                      child: SizedBox(),
-                    ),
-              
-                    // 2
-                    Expanded(
-                      flex: 9,
-                      child: Container(
-                        margin: const EdgeInsets.only(top: 5.0, bottom: 5.0),
-                        decoration: BoxDecoration(
-                          border: Border.all(
-                            width: 3,
-                            color: (Colors.indigo[300])!,
-                          ),
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: const Padding(
-                          padding: EdgeInsets.all(10.0),
-                          child: Center(
-                            child: Text(
-                              '2',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 30,
-                              ),
-                              
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-
-                    const Expanded(
-                      flex: 1,
-                      child: SizedBox(),
-                    ),
-              
-                    // 3
-                    Expanded(
-                      flex: 9,
-                      child: Container(
-                        margin: const EdgeInsets.only(top: 5.0, bottom: 5.0),
-                        decoration: BoxDecoration(
-                          border: Border.all(
-                            width: 3,
-                            color: (Colors.indigo[300])!,
-                          ),
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: const Padding(
-                          padding: EdgeInsets.all(10.0),
-                          child: Center(
-                            child: Text(
-                              '3',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 30,
-                              ),
-                              
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-
-                    const Expanded(
-                      flex: 1,
-                      child: SizedBox(),
-                    ),
-
-                    // -
-                    Expanded(
-                      flex: 9,
-                      child: Container(
-                        margin: const EdgeInsets.only(top: 5.0, bottom: 5.0),
-                        decoration: BoxDecoration(
-                          border: Border.all(
-                            width: 3,
-                            color: (Colors.indigo[300])!,
-                          ),
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: Padding(
-                          padding: const EdgeInsets.all(10.0),
-                          child: Center(
-                            child: Text(
-                              '-',
-                              style: TextStyle(
-                                color: Colors.deepPurple[900],
-                                fontSize: 30,
-                              ),
-                              
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 10.0, right: 10.0),
-                child: Row(
-                  children: [
-              
-                    // 0
-                    Expanded(
-                      flex: 17,
-                      child: Container(
-                        margin: const EdgeInsets.only(top: 5.0, bottom: 5.0),
-                        decoration: BoxDecoration(
-                          border: Border.all(
-                            width: 3,
-                            color: (Colors.indigo[300])!,
-                          ),
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: const Padding(
-                          padding: EdgeInsets.all(10.0),
-                          child: Center(
-                            child: Text(
-                              '0',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 30,
-                              ),
-                              
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-
-                    const Expanded(
-                      flex: 1,
-                      child: SizedBox(),
-                    ),
-              
-                    // .
-                    Expanded(
-                      flex: 8,
-                      child: Container(
-                        margin: const EdgeInsets.only(top: 5.0, bottom: 5.0),
-                        decoration: BoxDecoration(
-                          border: Border.all(
-                            width: 3,
-                            color: (Colors.indigo[300])!,
-                          ),
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: const Padding(
-                          padding: EdgeInsets.all(10.0),
-                          child: Center(
-                            child: Text(
-                              '.',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 30,
-                              ),
-                              
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-
-                    const Expanded(
-                      flex: 1,
-                      child: SizedBox(),
-                    ),
-
-                    // =
-                    Expanded(
-                      flex: 8,
-                      child: Container(
-                        margin: const EdgeInsets.only(top: 5.0, bottom: 5.0),
-                        decoration: BoxDecoration(
-                          border: Border.all(
-                            width: 3,
-                            color: (Colors.indigo[300])!,
-                          ),
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: Padding(
-                          padding: const EdgeInsets.all(10.0),
-                          child: Center(
-                            child: Text(
-                              '=',
-                              style: TextStyle(
-                                color: Colors.deepPurple[900],
-                                fontSize: 30,
-                              ),
-                              
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
