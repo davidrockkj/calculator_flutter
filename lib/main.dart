@@ -1,11 +1,26 @@
+// ignore_for_file: avoid_print
+
 import 'package:flutter/material.dart';
 
 void main() {
   runApp(const Calculator());
 }
 
-class Calculator extends StatelessWidget {
+class Calculator extends StatefulWidget {
   const Calculator({super.key});
+
+  @override
+  State<Calculator> createState() => _CalculatorState();
+}
+
+class _CalculatorState extends State<Calculator> {
+  void limparTela() {
+    setState(() {
+      msgVisor = '';
+    });
+  }
+
+  String msgVisor = 'Visor';
 
   @override
   Widget build(BuildContext context) {
@@ -29,33 +44,31 @@ class Calculator extends StatelessWidget {
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(10),
               ),
-              child: const Text(
-                'Visor',
-                style: TextStyle(
+              child: Text(
+                msgVisor,
+                style: const TextStyle(
                   fontSize: 30,
                 ),
               ),
             ),
-            
+
             // ignore: avoid_unnecessary_containers
             Container(
               child: Expanded(
                 child: Column(
                   children: [
-
-
                     // C DEL % /
                     Expanded(
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
-
                           // C
                           Expanded(
                             child: OutlinedButton(
                               style: OutlinedButton.styleFrom(
                                 shape: RoundedRectangleBorder(
-                                  borderRadius: const BorderRadius.all(Radius.circular(5),
+                                  borderRadius: const BorderRadius.all(
+                                    Radius.circular(5),
                                   ),
                                   side: BorderSide(
                                     style: BorderStyle.solid,
@@ -65,14 +78,12 @@ class Calculator extends StatelessWidget {
                                 ),
                               ),
                               onPressed: () {
-                                
-                              }, 
+                                limparTela();
+                              },
                               child: Text(
                                 'C',
                                 style: TextStyle(
-                                  color: Colors.indigo[400],
-                                  fontSize: 30
-                                ),
+                                    color: Colors.indigo[400], fontSize: 30),
                               ),
                             ),
                           ),
@@ -82,7 +93,8 @@ class Calculator extends StatelessWidget {
                             child: OutlinedButton(
                               style: OutlinedButton.styleFrom(
                                 shape: RoundedRectangleBorder(
-                                  borderRadius: const BorderRadius.all(Radius.circular(5),
+                                  borderRadius: const BorderRadius.all(
+                                    Radius.circular(5),
                                   ),
                                   side: BorderSide(
                                     style: BorderStyle.solid,
@@ -92,14 +104,14 @@ class Calculator extends StatelessWidget {
                                 ),
                               ),
                               onPressed: () {
-                                
-                              }, 
+                                setState(() {
+                                  msgVisor = 'Deletar';
+                                });
+                              },
                               child: Text(
                                 'DEL',
                                 style: TextStyle(
-                                  color: Colors.indigo[400],
-                                  fontSize: 30
-                                ),
+                                    color: Colors.indigo[400], fontSize: 30),
                               ),
                             ),
                           ),
@@ -109,7 +121,8 @@ class Calculator extends StatelessWidget {
                             child: OutlinedButton(
                               style: OutlinedButton.styleFrom(
                                 shape: RoundedRectangleBorder(
-                                  borderRadius: const BorderRadius.all(Radius.circular(5),
+                                  borderRadius: const BorderRadius.all(
+                                    Radius.circular(5),
                                   ),
                                   side: BorderSide(
                                     style: BorderStyle.solid,
@@ -119,14 +132,14 @@ class Calculator extends StatelessWidget {
                                 ),
                               ),
                               onPressed: () {
-                                
-                              }, 
+                                setState(() {
+                                  msgVisor = '%';
+                                });
+                              },
                               child: Text(
                                 '%',
                                 style: TextStyle(
-                                  color: Colors.indigo[400],
-                                  fontSize: 30
-                                ),
+                                    color: Colors.indigo[400], fontSize: 30),
                               ),
                             ),
                           ),
@@ -136,7 +149,8 @@ class Calculator extends StatelessWidget {
                             child: OutlinedButton(
                               style: OutlinedButton.styleFrom(
                                 shape: RoundedRectangleBorder(
-                                  borderRadius: const BorderRadius.all(Radius.circular(5),
+                                  borderRadius: const BorderRadius.all(
+                                    Radius.circular(5),
                                   ),
                                   side: BorderSide(
                                     style: BorderStyle.solid,
@@ -146,14 +160,14 @@ class Calculator extends StatelessWidget {
                                 ),
                               ),
                               onPressed: () {
-                                
-                              }, 
+                                setState(() {
+                                  msgVisor = '/';
+                                });
+                              },
                               child: Text(
                                 '/',
                                 style: TextStyle(
-                                  color: Colors.indigo[400],
-                                  fontSize: 30
-                                ),
+                                    color: Colors.indigo[400], fontSize: 30),
                               ),
                             ),
                           ),
@@ -161,19 +175,18 @@ class Calculator extends StatelessWidget {
                       ),
                     ),
 
-
                     // 7 8 9 *
                     Expanded(
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
-
                           // 7
                           Expanded(
                             child: OutlinedButton(
                               style: OutlinedButton.styleFrom(
                                 shape: const RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.all(Radius.circular(5),
+                                  borderRadius: BorderRadius.all(
+                                    Radius.circular(5),
                                   ),
                                   side: BorderSide(
                                     style: BorderStyle.solid,
@@ -183,14 +196,14 @@ class Calculator extends StatelessWidget {
                                 ),
                               ),
                               onPressed: () {
-                                
-                              }, 
+                                setState(() {
+                                  msgVisor = '7';
+                                });
+                              },
                               child: const Text(
                                 '7',
                                 style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 30
-                                ),
+                                    color: Colors.white, fontSize: 30),
                               ),
                             ),
                           ),
@@ -200,7 +213,8 @@ class Calculator extends StatelessWidget {
                             child: OutlinedButton(
                               style: OutlinedButton.styleFrom(
                                 shape: RoundedRectangleBorder(
-                                  borderRadius: const BorderRadius.all(Radius.circular(5),
+                                  borderRadius: const BorderRadius.all(
+                                    Radius.circular(5),
                                   ),
                                   side: BorderSide(
                                     style: BorderStyle.solid,
@@ -210,14 +224,14 @@ class Calculator extends StatelessWidget {
                                 ),
                               ),
                               onPressed: () {
-                                
-                              }, 
+                                setState(() {
+                                  msgVisor = '8';
+                                });
+                              },
                               child: const Text(
                                 '8',
                                 style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 30
-                                ),
+                                    color: Colors.white, fontSize: 30),
                               ),
                             ),
                           ),
@@ -227,7 +241,8 @@ class Calculator extends StatelessWidget {
                             child: OutlinedButton(
                               style: OutlinedButton.styleFrom(
                                 shape: RoundedRectangleBorder(
-                                  borderRadius: const BorderRadius.all(Radius.circular(5),
+                                  borderRadius: const BorderRadius.all(
+                                    Radius.circular(5),
                                   ),
                                   side: BorderSide(
                                     style: BorderStyle.solid,
@@ -237,14 +252,14 @@ class Calculator extends StatelessWidget {
                                 ),
                               ),
                               onPressed: () {
-                                
-                              }, 
+                                setState(() {
+                                  msgVisor = '9';
+                                });
+                              },
                               child: const Text(
                                 '9',
                                 style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 30
-                                ),
+                                    color: Colors.white, fontSize: 30),
                               ),
                             ),
                           ),
@@ -254,7 +269,8 @@ class Calculator extends StatelessWidget {
                             child: OutlinedButton(
                               style: OutlinedButton.styleFrom(
                                 shape: RoundedRectangleBorder(
-                                  borderRadius: const BorderRadius.all(Radius.circular(5),
+                                  borderRadius: const BorderRadius.all(
+                                    Radius.circular(5),
                                   ),
                                   side: BorderSide(
                                     style: BorderStyle.solid,
@@ -264,14 +280,14 @@ class Calculator extends StatelessWidget {
                                 ),
                               ),
                               onPressed: () {
-                                
-                              }, 
+                                setState(() {
+                                  msgVisor = '*';
+                                });
+                              },
                               child: Text(
                                 '*',
                                 style: TextStyle(
-                                  color: Colors.indigo[400],
-                                  fontSize: 30
-                                ),
+                                    color: Colors.indigo[400], fontSize: 30),
                               ),
                             ),
                           ),
@@ -279,19 +295,18 @@ class Calculator extends StatelessWidget {
                       ),
                     ),
 
-
                     // 4 5 6 -
                     Expanded(
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
-
                           // 4
                           Expanded(
                             child: OutlinedButton(
                               style: OutlinedButton.styleFrom(
                                 shape: const RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.all(Radius.circular(5),
+                                  borderRadius: BorderRadius.all(
+                                    Radius.circular(5),
                                   ),
                                   side: BorderSide(
                                     style: BorderStyle.solid,
@@ -301,14 +316,14 @@ class Calculator extends StatelessWidget {
                                 ),
                               ),
                               onPressed: () {
-                                
-                              }, 
+                                setState(() {
+                                  msgVisor = '4';
+                                });
+                              },
                               child: const Text(
                                 '4',
                                 style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 30
-                                ),
+                                    color: Colors.white, fontSize: 30),
                               ),
                             ),
                           ),
@@ -318,7 +333,8 @@ class Calculator extends StatelessWidget {
                             child: OutlinedButton(
                               style: OutlinedButton.styleFrom(
                                 shape: RoundedRectangleBorder(
-                                  borderRadius: const BorderRadius.all(Radius.circular(5),
+                                  borderRadius: const BorderRadius.all(
+                                    Radius.circular(5),
                                   ),
                                   side: BorderSide(
                                     style: BorderStyle.solid,
@@ -328,14 +344,14 @@ class Calculator extends StatelessWidget {
                                 ),
                               ),
                               onPressed: () {
-                                
-                              }, 
+                                setState(() {
+                                  msgVisor = '5';
+                                });
+                              },
                               child: const Text(
                                 '5',
                                 style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 30
-                                ),
+                                    color: Colors.white, fontSize: 30),
                               ),
                             ),
                           ),
@@ -345,7 +361,8 @@ class Calculator extends StatelessWidget {
                             child: OutlinedButton(
                               style: OutlinedButton.styleFrom(
                                 shape: RoundedRectangleBorder(
-                                  borderRadius: const BorderRadius.all(Radius.circular(5),
+                                  borderRadius: const BorderRadius.all(
+                                    Radius.circular(5),
                                   ),
                                   side: BorderSide(
                                     style: BorderStyle.solid,
@@ -355,14 +372,14 @@ class Calculator extends StatelessWidget {
                                 ),
                               ),
                               onPressed: () {
-                                
-                              }, 
+                                setState(() {
+                                  msgVisor = '6';
+                                });
+                              },
                               child: const Text(
                                 '6',
                                 style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 30
-                                ),
+                                    color: Colors.white, fontSize: 30),
                               ),
                             ),
                           ),
@@ -372,7 +389,8 @@ class Calculator extends StatelessWidget {
                             child: OutlinedButton(
                               style: OutlinedButton.styleFrom(
                                 shape: RoundedRectangleBorder(
-                                  borderRadius: const BorderRadius.all(Radius.circular(5),
+                                  borderRadius: const BorderRadius.all(
+                                    Radius.circular(5),
                                   ),
                                   side: BorderSide(
                                     style: BorderStyle.solid,
@@ -382,14 +400,14 @@ class Calculator extends StatelessWidget {
                                 ),
                               ),
                               onPressed: () {
-                                
-                              }, 
+                                setState(() {
+                                  msgVisor = '-';
+                                });
+                              },
                               child: Text(
                                 '-',
                                 style: TextStyle(
-                                  color: Colors.indigo[400],
-                                  fontSize: 30
-                                ),
+                                    color: Colors.indigo[400], fontSize: 30),
                               ),
                             ),
                           ),
@@ -397,19 +415,18 @@ class Calculator extends StatelessWidget {
                       ),
                     ),
 
-
                     // 1 2 3 +
                     Expanded(
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
-
                           // 1
                           Expanded(
                             child: OutlinedButton(
                               style: OutlinedButton.styleFrom(
                                 shape: const RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.all(Radius.circular(5),
+                                  borderRadius: BorderRadius.all(
+                                    Radius.circular(5),
                                   ),
                                   side: BorderSide(
                                     style: BorderStyle.solid,
@@ -419,14 +436,14 @@ class Calculator extends StatelessWidget {
                                 ),
                               ),
                               onPressed: () {
-                                
-                              }, 
+                                setState(() {
+                                  msgVisor = '1';
+                                });
+                              },
                               child: const Text(
                                 '1',
                                 style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 30
-                                ),
+                                    color: Colors.white, fontSize: 30),
                               ),
                             ),
                           ),
@@ -436,7 +453,8 @@ class Calculator extends StatelessWidget {
                             child: OutlinedButton(
                               style: OutlinedButton.styleFrom(
                                 shape: RoundedRectangleBorder(
-                                  borderRadius: const BorderRadius.all(Radius.circular(5),
+                                  borderRadius: const BorderRadius.all(
+                                    Radius.circular(5),
                                   ),
                                   side: BorderSide(
                                     style: BorderStyle.solid,
@@ -446,14 +464,14 @@ class Calculator extends StatelessWidget {
                                 ),
                               ),
                               onPressed: () {
-                                
-                              }, 
+                                setState(() {
+                                  msgVisor = '2';
+                                });
+                              },
                               child: const Text(
                                 '2',
                                 style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 30
-                                ),
+                                    color: Colors.white, fontSize: 30),
                               ),
                             ),
                           ),
@@ -463,7 +481,8 @@ class Calculator extends StatelessWidget {
                             child: OutlinedButton(
                               style: OutlinedButton.styleFrom(
                                 shape: RoundedRectangleBorder(
-                                  borderRadius: const BorderRadius.all(Radius.circular(5),
+                                  borderRadius: const BorderRadius.all(
+                                    Radius.circular(5),
                                   ),
                                   side: BorderSide(
                                     style: BorderStyle.solid,
@@ -473,14 +492,14 @@ class Calculator extends StatelessWidget {
                                 ),
                               ),
                               onPressed: () {
-                                
-                              }, 
+                                setState(() {
+                                  msgVisor = '3';
+                                });
+                              },
                               child: const Text(
                                 '3',
                                 style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 30
-                                ),
+                                    color: Colors.white, fontSize: 30),
                               ),
                             ),
                           ),
@@ -490,7 +509,8 @@ class Calculator extends StatelessWidget {
                             child: OutlinedButton(
                               style: OutlinedButton.styleFrom(
                                 shape: RoundedRectangleBorder(
-                                  borderRadius: const BorderRadius.all(Radius.circular(5),
+                                  borderRadius: const BorderRadius.all(
+                                    Radius.circular(5),
                                   ),
                                   side: BorderSide(
                                     style: BorderStyle.solid,
@@ -500,14 +520,14 @@ class Calculator extends StatelessWidget {
                                 ),
                               ),
                               onPressed: () {
-                                
-                              }, 
+                                setState(() {
+                                  msgVisor = '+';
+                                });
+                              },
                               child: Text(
                                 '+',
                                 style: TextStyle(
-                                  color: Colors.indigo[400],
-                                  fontSize: 30
-                                ),
+                                    color: Colors.indigo[400], fontSize: 30),
                               ),
                             ),
                           ),
@@ -515,20 +535,19 @@ class Calculator extends StatelessWidget {
                       ),
                     ),
 
-
                     // 0 . =
                     Expanded(
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
-
                           // 0
                           Expanded(
                             flex: 2,
                             child: OutlinedButton(
                               style: OutlinedButton.styleFrom(
                                 shape: const RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.all(Radius.circular(5),
+                                  borderRadius: BorderRadius.all(
+                                    Radius.circular(5),
                                   ),
                                   side: BorderSide(
                                     style: BorderStyle.solid,
@@ -538,14 +557,14 @@ class Calculator extends StatelessWidget {
                                 ),
                               ),
                               onPressed: () {
-                                
-                              }, 
+                                setState(() {
+                                  msgVisor = '0';
+                                });
+                              },
                               child: const Text(
                                 '0',
                                 style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 30
-                                ),
+                                    color: Colors.white, fontSize: 30),
                               ),
                             ),
                           ),
@@ -556,7 +575,8 @@ class Calculator extends StatelessWidget {
                             child: OutlinedButton(
                               style: OutlinedButton.styleFrom(
                                 shape: RoundedRectangleBorder(
-                                  borderRadius: const BorderRadius.all(Radius.circular(5),
+                                  borderRadius: const BorderRadius.all(
+                                    Radius.circular(5),
                                   ),
                                   side: BorderSide(
                                     style: BorderStyle.solid,
@@ -566,14 +586,14 @@ class Calculator extends StatelessWidget {
                                 ),
                               ),
                               onPressed: () {
-                                
-                              }, 
+                                setState(() {
+                                  msgVisor = '.';
+                                });
+                              },
                               child: const Text(
                                 '.',
                                 style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 30
-                                ),
+                                    color: Colors.white, fontSize: 30),
                               ),
                             ),
                           ),
@@ -584,7 +604,8 @@ class Calculator extends StatelessWidget {
                             child: OutlinedButton(
                               style: OutlinedButton.styleFrom(
                                 shape: RoundedRectangleBorder(
-                                  borderRadius: const BorderRadius.all(Radius.circular(5),
+                                  borderRadius: const BorderRadius.all(
+                                    Radius.circular(5),
                                   ),
                                   side: BorderSide(
                                     style: BorderStyle.solid,
@@ -594,21 +615,20 @@ class Calculator extends StatelessWidget {
                                 ),
                               ),
                               onPressed: () {
-                                
-                              }, 
+                                setState(() {
+                                  msgVisor = 'Igualdade';
+                                });
+                              },
                               child: Text(
                                 '=',
                                 style: TextStyle(
-                                  color: Colors.indigo[300],
-                                  fontSize: 30
-                                ),
+                                    color: Colors.indigo[300], fontSize: 30),
                               ),
                             ),
                           ),
-
                         ],
                       ),
-                    ),                    
+                    ),
                   ],
                 ),
               ),
